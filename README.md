@@ -25,7 +25,7 @@ Follow these steps to run tests properly.
 ```
 Update .env.EXAMPLE file
     * Update DB_USER='your username'
-    * Update DB_PASSWORD='your password'
+    * Update DB_PW='your password'
     * Rename file to .env
 Install all dependencies via 'npm install'
 
