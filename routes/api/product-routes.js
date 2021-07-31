@@ -10,7 +10,7 @@ router.get('/', async(req, res) => {
         const productData = await Product.findAll({
             include: [{ model: Category }, { model: Tag }]
         });
-        res.status(200);
+        res.status(200).json(productData);
     } catch (err) {
         res.status(500).json(err)
     }
@@ -26,7 +26,7 @@ router.get('/:id', async(req, res) => {
         if (!productData) {
             res.status(404).json({ message: `Sorry no product found with that ID!` })
             return;
-        } else { res.status(200); }
+        } else { res.status(200).json(productData); }
     } catch (err) {
         res.status(500).json(err)
     }
@@ -115,6 +115,7 @@ router.delete('/:id', async(req, res) => {
         })
         if (!productData) {
             res.status(404).json({ message: `No Product found under that ID! Try another ID` })
+            return;
         } else {
             res.status(200).json(productData);
         }
